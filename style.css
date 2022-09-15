@@ -1,0 +1,168 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+body{
+    background-image: url(./assets/bg.jpg);
+    background-position: top center;
+    background-size: 100% auto; /*tamanho na tela : horizontal vertical ;*/
+    background-repeat: no-repeat; /*quando fica um espaço vago de modo automatico repte a imagem esse comando é usado para não repetir*/
+    background-color: #121214;
+}
+
+body * {
+    font-family: 'Inter', sans-serif; /*sans-serif é usado para quando letras  que tem alguns detalhes como ranhuras essas ranhuras pode dar problema em alguns navegares então o "sans-serif" vem para tirar essas ranhuras*/
+    line-height: 160%; /*line-height = altura da linha*/
+}
+
+header {
+    margin-top: 32px;
+    height: calc(120px + 32px);
+}
+
+header div {
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(
+        90deg,
+        #9572FC 0%,
+        #43E7AD 50.52%,
+        #E2D45C 100%
+    );
+    border-radius: 50%; /*esse borde radius é da parte colorida*/
+    display: flex;
+    padding: 4px;
+    transform: transform .3s; /*aqui onde chamamos a "função para funcionar" o .3s é como fosse "0.3s tres decimos de segundo"*/
+    
+    animation: fromTop .7s .2s backwards;
+}
+
+header div:hover{
+    /* Quando colocamos o "elemento:hover" é como se fosse onde criamos a função e para usar vamos declarar onde será usado*/
+    transform: scale(1.1); /* <--- essa função*/
+}
+
+header img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+main{
+    max-width: 580px;
+    width: 90%;
+    margin: 32px auto;
+
+    display: grid;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+section {
+    color: white;
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: -0.47px;
+    
+    background-image: linear-gradient(
+        90deg,
+        #9572FC 0%,
+        #43E7AD 50.52%,
+        #E2D45C 100%
+    );
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div{
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+section p {
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.18px;
+} /*quando se usa um elemento seguido do outro é porque no caso o P é filho de SECTION*/
+
+section ul {
+    display: flex; 
+    /*display tem a ver com visualização*/
+    /*o flex está sendo aplicado para que todas as caixas dentro do elemento ul */
+    flex-wrap: wrap;
+    gap: 16px;
+
+    margin-top: 24px;
+}
+
+section ul li {
+    transform: transform .3s;
+}
+
+section ul li:hover{
+    transform: scale(1.1);
+}
+
+.games-list img{
+    width: 90px;
+    border-radius: 8px;
+}
+
+.channel-list img {
+    width: 70px;
+    border-radius: 50%;
+    border: 1px solid #443E54;
+}
+
+/* aniamtion */
+
+main section{
+    animation: fromBottom .7s backwards;
+}
+
+main section:nth-child(1) {
+    animation-delay: 0;
+}/*pegando o filho numero 1*/
+
+main section:nth-child(2) {
+    animation-delay: .4s;
+}/*pegando o filho numero 2*/
+
+main section:nth-child(3) {
+    animation-delay: .8s;
+}/*pegando o filho numero 3*/
+
+/*@keyframes identifier {
+    o @keyframes é usado para inicializar a animação
+}*/
+
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }/*animar DE*/
+
+    to{
+        opacity: 1;
+        tranform: translateY(0); /*essa função é usada para mover de cima abaixo como informado no eixo Y, e o valor é igual a 0 pois é a posição final */
+    }/*animar ATÊ*/
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacitX: 1;
+        tranform: translateX(0);
+    }
+}
